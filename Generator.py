@@ -6,8 +6,8 @@ import hashlib
 
 class Generator(object):
     def __init__(self):
-        self.latitude = config.latitude
-        self.longitude = config.longitude
+        self.latitude = str(config.latitude).split(".")
+        self.longitude = str(config.longitude).split(".")
 
     def getHash(self):
         # instead of Dow Jones I use the time
@@ -26,11 +26,8 @@ class Generator(object):
         latitude_decimal = str(int(longitude_hash_str, base=16))
         longitude_decimal = str(int(latitude_hash_str, base=16))
 
-        latitude_split = str(self.latitude).split(".")
-        longitude_split = str(self.longitude).split(".")
-
-        latitude  = latitude_split[0] + "." + latitude_split[1][:config.decimal_start]
-        longitude = longitude_split[0] + "." + longitude_split[1][:config.decimal_start]
+        latitude = self.latitude[0] + "." + self.latitude[1][:config.decimal_start]
+        longitude = self.longitude[0] + "." + self.longitude[1][:config.decimal_start]
 
         latitude += latitude_decimal[config.decimal_start:config.decimal_places]
         longitude += longitude_decimal[config.decimal_start:config.decimal_places]
