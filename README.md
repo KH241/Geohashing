@@ -9,6 +9,6 @@ In the file  `config.py`, you need to change the following:
  * longitude - to your longitude
 
 You can also change these if you want
- * decimal_start - defines when the program will start filling the coordinates with hashnumbers (it starts at 0)
+ * decimal_start - defines when the program will start filling the coordinates with hashnumbers (default start is 0)
  * decimal_places - defines how precise your coordinates will be
  * api_request - the link your browser will open (important: `{0}` is the latitude and `{1}` is the longitude)
